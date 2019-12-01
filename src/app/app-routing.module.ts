@@ -5,7 +5,9 @@ const routes: Routes = [
   {
     path: "suppliers",
     loadChildren: () =>
-      import("./suppliers/suppliers.module").then(m => m.SuppliersModule)
+      import("./modules/suppliers/suppliers.module").then(
+        m => m.SuppliersModule
+      )
   }
 ];
 
