@@ -6,7 +6,7 @@
 </form>
 <div class="card-group row">
   <div class="col-xl-4 col-md-6 mb-3" *ngFor="let supplier of suppliers">
-    <summary class="card bg-light mb-3">
+    <a [routerLink]="['./', supplier.id]" class="card bg-light mb-3">
       <h5 class="card-header">{{ supplier.name }}</h5>
       <div class="card-body">
         <div class="row">
@@ -26,6 +26,6 @@
           <div class="col-7" dir="ltr">{{ supplier.email }}</div>
         </div>
       </div>
-    </summary>
+    </a>
   </div>
 </div>
