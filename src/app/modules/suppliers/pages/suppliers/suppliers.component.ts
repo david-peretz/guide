@@ -19,4 +19,8 @@ export class SuppliersComponent implements OnInit {
   isFirstLoad() {
     return !(this.service.suppliers && this.service.suppliers.length > 0);
   }
+
+  get search() {
+    return;
+  }
 }

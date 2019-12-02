@@ -1,11 +1,18 @@
-<form class="form-inline bg-light mb-3 border p-3">
-  <input type="text" class="col-7 col-md-4 form-control ml-3" />
+<form name="form" class="form-inline bg-light mb-3 border p-3">
+  <input
+    [(ngModel)]="form.searchText"
+    type="text"
+    class="col-7 col-md-4 form-control ml-3"
+  />
   <button type="submit" class="col-4 col-md-2 btn btn-primary">
     חפש
   </button>
 </form>
 <div class="card-group row">
-  <div class="col-xl-4 col-md-6 mb-3" *ngFor="let supplier of suppliers">
+  <div
+    class="col-xl-4 col-md-6 mb-3"
+    *ngFor="let supplier of suppliers | filter: form.searchText"
+  >
     <a [routerLink]="['./', supplier.id]" class="card bg-light mb-3">
       <h5 class="card-header">{{ supplier.name }}</h5>
       <div class="card-body">
