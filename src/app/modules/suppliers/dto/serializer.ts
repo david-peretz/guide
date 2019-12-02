@@ -3,12 +3,14 @@ import { Supplier } from "../services/dto/resource";
 
 export class SupplierSerializer implements Serializer {
   fromJson(json: any): Supplier {
-    const supplier = new Supplier();
-    supplier.id = json.id;
-    supplier.name = json.name;
-    supplier.address = json.address;
-    supplier.phone = json.phone;
-    supplier.email = json.email;
+    const supplier = Object.assign({}, new Supplier(), json);
+
+    // const supplier = new Supplier();
+    // supplier.id = json.id;
+    // supplier.name = json.name;
+    // supplier.address = json.address;
+    // supplier.phone = json.phone;
+    // supplier.email = json.email;
     return supplier;
   }
 
