@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SuppliersService } from "../../services/suppliers.service";
 import { Supplier } from "../../services/dto/resource";
-import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-suppliers",
@@ -13,11 +12,11 @@ export class SuppliersComponent implements OnInit {
   constructor(private service: SuppliersService) {}
 
   async ngOnInit() {
-    if (this.service.suppliers && this.service.suppliers.length > 0) {
-    } else {
-      await this.service.fetch();
-    }
-    //console.log(this.service.suppliers);
+    this.isFirstLoad() && (await this.service.fetchData());
     this.suppliers = this.service.suppliers;
+  }
+
+  isFirstLoad() {
+    return !(this.service.suppliers && this.service.suppliers.length > 0);
   }
 }
