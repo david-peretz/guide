@@ -3,13 +3,12 @@ import { Serializer } from "src/app/core/services/generic/serializer";
 
 export class SupplierSerializer implements Serializer {
   fromJson(json: any): Supplier {
-    const supplier = Object.assign({}, new Supplier(), json);
-
-    // supplier.id = json.id;
-    // supplier.name = json.name;
-    // supplier.address = json.address;
-    // supplier.phone = json.phone;
-    // supplier.email = json.email;
+    const supplier = new Supplier();
+    supplier.id = json.id;
+    supplier.name = json.name;
+    supplier.address = json.address;
+    supplier.phone = json.phone;
+    supplier.email = json.email;
     return supplier;
   }
 
