@@ -10,7 +10,7 @@ export class SuppliersService extends ResourceService<Supplier> {
     super(httpClient, "suppliers.json", new SupplierSerializer());
   }
 
-  suppliers: Supplier[];
+  suppliers: Supplier[] = [];
 
   async fetchData() {
     return await this.list()
