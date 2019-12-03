@@ -11,7 +11,7 @@ export class SuppliersService extends ResourceService<Supplier> {
   }
 
   private _suppliers: Supplier[] = [];
-  async getSuppliers(): Promise<Supplier[]> {
+  async getAll(): Promise<Supplier[]> {
     if (this._suppliers.length == 0)
       this._suppliers = await this.list().toPromise();
     return this._suppliers;
