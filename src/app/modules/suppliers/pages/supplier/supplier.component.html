@@ -1,30 +1,74 @@
-<div>{{ supplier?.name }}</div>
-<form>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="name">שם ספק</label>
     <input
-      type="email"
+      [(ngModel)]="supplier.name"
+      [value]="supplier?.name"
+      name="name"
+      type="text"
       class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-      placeholder="Enter email"
+      aria-describedby="nameHelp"
+      placeholder="Enter Name"
     />
-    <small id="emailHelp" class="form-text text-muted"
+    <!-- <small id="nameHelp" class="form-text text-muted"
       >We'll never share your email with anyone else.</small
-    >
+    > -->
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label for="address">כתובת</label>
     <input
-      type="password"
+      [(ngModel)]="supplier.address"
+      [value]="supplier?.address"
+      name="address"
+      type="text"
       class="form-control"
-      id="exampleInputPassword1"
-      placeholder="Password"
+      aria-describedby="addressHelp"
+      placeholder="Enter Address"
+    />
+    <!-- <small id="addressHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+  </div>
+  <div class="form-group">
+    <label for="supplier.id">מספר ספק</label>
+    <input
+      [(ngModel)]="supplier.id"
+      [value]="supplier?.id"
+      name="id"
+      type="text"
+      class="form-control"
+      aria-describedby="idHelp"
     />
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="form-group">
+    <label for="phone">phone Number</label>
+    <input
+      [(ngModel)]="supplier.phone"
+      [value]="supplier?.phone"
+      name="phone"
+      type="text"
+      class="form-control"
+      aria-describedby="phoneHelp"
+      placeholder="Enter Phone"
+    />
+    <!-- <small id="phoneHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      [(ngModel)]="supplier.email"
+      [value]="supplier?.email"
+      name="email"
+      type="text"
+      class="form-control"
+      aria-describedby="emailHelp"
+      placeholder="Enter Email"
+    />
+    <!-- <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
