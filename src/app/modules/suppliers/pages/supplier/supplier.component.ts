@@ -15,8 +15,10 @@ export class SupplierComponent implements OnInit {
   ) {}
   supplier: Supplier;
   async ngOnInit() {
-    const id = parseInt(this.route.snapshot.paramMap.get("id"));
-    const suppliers = await this.service.getAll();
-    this.supplier = suppliers.find(supplier => supplier.id == id);
+    let id = this.route.snapshot.paramMap.get("id");
+    if (!isNaN(id as any)) {
+      const suppliers = await this.service.getAll();
+      this.supplier = suppliers.find(supplier => supplier.id == parseInt(id));
+    }
   }
 }
