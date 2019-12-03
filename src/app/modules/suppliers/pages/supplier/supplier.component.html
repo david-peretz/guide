@@ -1,4 +1,21 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<button
+  type="submit"
+  *ngIf="!isEditMode"
+  (click)="isEditMode = !isEditMode"
+  class="btn btn-primary"
+>
+  עריכה
+</button>
+<button
+  type="submit"
+  *ngIf="isEditMode"
+  (click)="isEditMode = !isEditMode"
+  class="btn btn-primary"
+>
+  ביטול עריכה
+</button>
+
+<form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">שם ספק</label>
     <input
@@ -6,7 +23,9 @@
       [value]="supplier?.name"
       name="name"
       type="text"
-      class="form-control"
+      [readonly]="!isEditMode"
+      [class.form-control]="isEditMode"
+      [class.form-control-plaintext]="!isEditMode"
       aria-describedby="nameHelp"
       placeholder="Enter Name"
     />
@@ -21,7 +40,9 @@
       [value]="supplier?.address"
       name="address"
       type="text"
-      class="form-control"
+      [readonly]="!isEditMode"
+      [class.form-control]="isEditMode"
+      [class.form-control-plaintext]="!isEditMode"
       aria-describedby="addressHelp"
       placeholder="Enter Address"
     />
@@ -36,7 +57,9 @@
       [value]="supplier?.id"
       name="id"
       type="text"
-      class="form-control"
+      [readonly]="!isEditMode"
+      [class.form-control]="isEditMode"
+      [class.form-control-plaintext]="!isEditMode"
       aria-describedby="idHelp"
     />
   </div>
@@ -47,7 +70,9 @@
       [value]="supplier?.phone"
       name="phone"
       type="text"
-      class="form-control"
+      [readonly]="!isEditMode"
+      [class.form-control]="isEditMode"
+      [class.form-control-plaintext]="!isEditMode"
       aria-describedby="phoneHelp"
       placeholder="Enter Phone"
     />
@@ -62,7 +87,9 @@
       [value]="supplier?.email"
       name="email"
       type="text"
-      class="form-control"
+      [readonly]="!isEditMode"
+      [class.form-control]="isEditMode"
+      [class.form-control-plaintext]="!isEditMode"
       aria-describedby="emailHelp"
       placeholder="Enter Email"
     />
@@ -70,5 +97,5 @@
       >We'll never share your email with anyone else.</small
     > -->
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" *ngIf="isEditMode" class="btn btn-primary">שמור</button>
 </form>

@@ -11,9 +11,21 @@ export class SuppliersService extends ResourceService<Supplier> {
   }
 
   private _suppliers: Supplier[] = [];
-  async getAll(): Promise<Supplier[]> {
-    if (this._suppliers.length == 0)
-      this._suppliers = await this.list().toPromise();
+  get suppliers() {
     return this._suppliers;
+  }
+
+  async getAll(): Promise<Supplier[]> {
+    if (this._suppliers.length === 0)
+      this._suppliers = await this.list().toPromise();
+    return this.suppliers;
+  }
+
+  updateLocal(supplier) {
+    if (!supplier.id) this.suppliers.push(supplier);
+    else if (!isNaN(supplier.id))
+      this.suppliers[
+        this.suppliers.findIndex(el => el.id === supplier.id)
+      ] = supplier;
   }
 }
