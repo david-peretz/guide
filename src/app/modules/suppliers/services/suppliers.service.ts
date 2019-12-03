@@ -10,13 +10,10 @@ export class SuppliersService extends ResourceService<Supplier> {
     super(httpClient, "suppliers.json", new SupplierSerializer());
   }
 
-  suppliers: Supplier[] = [];
-
-  async fetchData() {
-    return await this.list()
-      .toPromise()
-      .then(data => {
-        this.suppliers = data;
-      });
+  private _suppliers: Supplier[] = [];
+  async getSuppliers(): Promise<Supplier[]> {
+    if (this._suppliers.length == 0)
+      this._suppliers = await this.list().toPromise();
+    return this._suppliers;
   }
 }

@@ -14,8 +14,9 @@ export class SupplierComponent implements OnInit {
     private service: SuppliersService
   ) {}
   supplier: Supplier;
-  ngOnInit() {
+  async ngOnInit() {
     const id = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.supplier = this.service.suppliers.find(supplier => supplier.id == id);
+    const suppliers = await this.service.getSuppliers();
+    this.supplier = suppliers.find(supplier => supplier.id == id);
   }
 }

@@ -12,15 +12,6 @@ export class SuppliersComponent implements OnInit {
   constructor(private service: SuppliersService) {}
 
   async ngOnInit() {
-    this.isFirstLoad() && (await this.service.fetchData());
-    this.suppliers = this.service.suppliers;
-  }
-
-  isFirstLoad() {
-    return !(this.service.suppliers && this.service.suppliers.length > 0);
-  }
-
-  get search() {
-    return;
+    this.suppliers = await this.service.getSuppliers();
   }
 }

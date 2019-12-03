@@ -7,7 +7,11 @@ export class FilterPipe implements PipeTransform {
   transform(items: any[], searchText: string): any[] {
     if (!items) return [];
     if (!searchText) return items;
-    searchText = searchText.toLowerCase();
-    return items.filter(item => item.toLowerCase().includes(searchText));
+    return items.filter(item => {
+      return Object.keys(item).some(key => {
+        if (item[key] && typeof item[key] == "string")
+          return item[key].toLowerCase().includes(searchText.toLowerCase());
+      });
+    });
   }
 }
