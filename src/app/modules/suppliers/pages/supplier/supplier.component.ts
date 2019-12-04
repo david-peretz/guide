@@ -18,16 +18,17 @@ export class SupplierComponent implements OnInit {
   supplier: Supplier = new Supplier();
   private _isEditMode: boolean = false;
   get isEditMode(): boolean {
-    return this._isEditMode || this.id.toString() === "new";
+    return this._isEditMode || this.id === "new";
   }
   set isEditMode(isEdit) {
     this._isEditMode = isEdit;
   }
 
   async ngOnInit() {
-    if (isNaN(this.id)) return;
+    const id = parseInt(this.id);
+    if (isNaN(id)) return;
     const suppliers = await this.service.getAll();
-    this.supplier = suppliers.find(supplier => supplier.id === this.id);
+    this.supplier = suppliers.find(supplier => supplier.id === id);
     console.log(this.supplier);
   }
 
@@ -36,6 +37,6 @@ export class SupplierComponent implements OnInit {
   }
 
   get id() {
-    return parseInt(this.route.snapshot.paramMap.get("id"));
+    return this.route.snapshot.paramMap.get("id");
   }
 }

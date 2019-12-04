@@ -8,7 +8,7 @@
 </button>
 <button
   type="submit"
-  *ngIf="isEditMode"
+  *ngIf="isEditMode && id !== 'new'"
   (click)="isEditMode = !isEditMode"
   class="btn btn-primary"
 >
