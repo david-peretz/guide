@@ -8,6 +8,11 @@ const routes: Routes = [
       import("./modules/suppliers/suppliers.module").then(
         m => m.SuppliersModule
       )
+  },
+  {
+    path: "contact",
+    loadChildren: () =>
+      import("./modules/contact/contact.module").then(m => m.ContactModule)
   }
 ];
 
