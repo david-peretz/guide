@@ -33,6 +33,7 @@ export class SupplierComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.supplier);
     this.service.updateLocal(this.supplier);
   }
 

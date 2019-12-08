@@ -46,9 +46,9 @@ export class ContactComponent {
     },
     {
       type: "radio",
-      name: "country",
-      label: "Country",
-      value: "in",
+      name: "gender",
+      label: "Gender",
+      value: "m",
       required: true,
       options: [
         { key: "m", label: "Male" },
@@ -71,6 +71,7 @@ export class ContactComponent {
     this.form = new FormGroup({
       fields: new FormControl(JSON.stringify(this.fields))
     });
+
     this.unsubcribe = this.form.valueChanges.subscribe(update => {
       console.log(update);
       this.fields = JSON.parse(update.fields);
@@ -81,6 +82,9 @@ export class ContactComponent {
     console.log(e);
   }
 
+  handleSubmit(f: any) {
+    console.log(f);
+  }
   getFields() {
     return this.fields;
   }
