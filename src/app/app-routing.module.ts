@@ -21,6 +21,13 @@ const routes: Routes = [
         m => m.SuppliersModule
       )
   }
+  // { path: '/', redirectTo: 'heroes', terminal: true },
+  // { path: 'heroes', component: HeroComponent,
+  //   children: [
+  //     { path: '/', redirectTo: 'detail', terminal: true },
+  //     { path: 'detail', component: HeroDetailComponent }
+  //   ]
+  // }
 ];
 
 @NgModule({
