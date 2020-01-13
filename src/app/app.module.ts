@@ -8,7 +8,7 @@ import { DynamicFormBuilderModule } from "./core/dynamic-form-builder/dynamic-fo
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import { fakeBackendProvider } from "./_helpers";
+import { fakeBackendProvider } from "./authentication/_helpers";
 
 @NgModule({
   declarations: [AppComponent],
