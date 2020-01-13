@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { fakeBackendProvider } from "./authentication/_helpers";
+import { LoginComponent } from "./authentication/pages/login.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
