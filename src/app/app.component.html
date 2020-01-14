@@ -1,32 +1,22 @@
-<header class="navbar navbar-expand-md navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">נתיב</a>
-</header>
+﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
 </nav>
 
-<div class="container-fluid">
-  <div class="row flex-xl-nowrap">
-    <div class="col-sm-5 col-md-3 bg-light border-left">sidebar</div>
-    <main class="col-sm-7 col-md-9 py-sm-3 pl-sm-5">
-      <mat-checkbox
-        #showDetails
-        [value]="2"
-        [checked]="isChecked"
-        (change)="onChange($event)"
-        >Show Details</mat-checkbox
-      >
-      <div *ngIf="showDetails.checked">some details</div>
-      <!-- <mat-radio-group>
-        <mat-radio-button></mat-radio-button>
-        <mat-radio-button></mat-radio-button>
-      </mat-radio-group> -->
-
-      <router-outlet></router-outlet>
-    </main>
-  </div>
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
-<!-- nav -->
+
+<!-- credits -->
+<div class="text-center mt-4">
+    <p>
+        <a href="https://jasonwatmore.com/post/2019/06/22/angular-8-jwt-authentication-example-tutorial" target="_top">Angular 8 - JWT Authentication Example & Tutorial</a>
+    </p>
+    <p>
+        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+</div>

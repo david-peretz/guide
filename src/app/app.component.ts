@@ -1,37 +1,22 @@
-// import { Component, ViewEncapsulation } from "@angular/core";
+﻿import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-// @Component({
-//   selector: "app-root",
-//   templateUrl: "./app.component.html",
-//   styleUrls: ["./app.component.css"],
-//   encapsulation: ViewEncapsulation.None
-// })
-// export class AppComponent {
-//   isChecked = true;
+import { AuthenticationService } from './_services';
+import { User } from './_models';
 
-//   onChange($event) {
-//     console.log($event);
-//   }
-// }
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthenticationService } from "./authentication/_services";
-
-@Component({ selector: "app-root", templateUrl: "app.component.html" })
+@Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
-  currentUser: any;
+    currentUser: User;
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    this.authenticationService.currentUser.subscribe(
-      x => (this.currentUser = x)
-    );
-  }
+    constructor(
+        private router: Router,
+        private authenticationService: AuthenticationService
+    ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
 
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(["/login"]);
-  }
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
+    }
 }
