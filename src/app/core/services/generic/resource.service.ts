@@ -24,7 +24,7 @@ export class ResourceService<T extends Resource> {
   public update(item: T): Observable<T> {
     return this.httpClient
       .put<T>(
-        `${environment.apiUrl}/${this.endpoint}/${item.id}`,
+        `${environment.uri}/${this.endpoint}/${item.id}`,
         this.serializer.toJson(item)
       )
       .pipe(map(data => this.serializer.fromJson(data) as T));
@@ -32,14 +32,14 @@ export class ResourceService<T extends Resource> {
 
   read(id: number): Observable<T> {
     return this.httpClient
-      .get(`${environment.apiUrl}/${this.endpoint}/${id}`)
+      .get(`${environment.uri}/${this.endpoint}/${id}`)
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
 
   list(queryOptions?: any): Observable<T[]> {
     return this.httpClient
       .get(
-        `${environment.apiUrl}/${this.endpoint}${
+        `${environment.uri}/${this.endpoint}${
           queryOptions ? queryOptions.toQueryString() : ""
         }`
       )
@@ -47,9 +47,7 @@ export class ResourceService<T extends Resource> {
   }
 
   delete(id: number) {
-    return this.httpClient.delete(
-      `${environment.apiUrl}/${this.endpoint}/${id}`
-    );
+    return this.httpClient.delete(`${environment.uri}/${this.endpoint}/${id}`);
   }
 
   private convertData(data: any): T[] {
