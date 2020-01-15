@@ -3,6 +3,9 @@
   <head>
     <title>Angular 8</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   </head>
   <style>
     body {
@@ -19,7 +22,7 @@
     .nav-left {
       flex: 18%;
       background-color: #293c4e;
-      padding: 20px;
+      padding: 20px 0px 20px 0px;
       height: 600px;
     }
     .nav-top {
@@ -45,19 +48,40 @@
     .nav-left .nav > ul{ 
         margin :0; 
         padding:0; 
+        list-style-type: none;
         }
-        .nav-left .nav{
+    .nav-left .nav{
         padding: 0 20px;
         font-size: 0.8em;
       }
-      .nav-left .nav > li.active::after{
-          content:'';
-         display:block;
-   margin-top:5px;
-   margin-left:15px;
-   width:138px;  
-   border-bottom: 3px solid #333;  
+
+    
+    li:hover{
+            background-color: #223342;
+            border-right:5px solid #F29C28 ;
+             transition: background-color 1s;
+            }
+    
+    .nav-left .nav  li > a > span{
+   padding: 0 20px;
  }
+
+ .nav-left .nav {
+  padding: 50px 0px 0px 0px;
+ }
+
+ .nav-left .nav  li {    
+   height: 50PX;
+    padding: 15px 0px 15px 33px;
+    }
+    
+    .nav-left .user-pic{
+      padding: 0px 0px 0px 50px;
+    }
+    
+   .nav-left .user-pic > a > div{
+     padding:20px 0;
+   }
 
     a {
       text-decoration: none;
@@ -75,19 +99,25 @@
         </div>
         <div class="nav">
           <ul>
-            <li> <a href=""><i></i><span>Dashboard<span></a></li>
-              <li> <a href=""><i></i><span>Files<span></a></li>
+            <li> <a href=""><i class="glyphicon glyphicon-dashboard" ></i><span>Dashboard<span></a></li>
+              <li> <a href=""><i class="glyphicon glyphicon-file"></i><span>Files<span></a></li>
+                <li> <a href=""><i class="glyphicon glyphicon-th-list"></i><span>News<span></a></li>
+                  <li> <a href=""><i class="glyphicon glyphicon-user"></i><span>Users<span></a></li>
+                    <li> <a href=""><i class="glyphicon glyphicon-info-sign"></i><span>FAQ<span></a></li>
+                      <li> <a href=""><i class="	glyphicon glyphicon-education"></i><span>Help<span></a></li>
+                        <li> <a href=""><i class="glyphicon glyphicon-cog"></i><span>Settings<span></a></li>
             </ul>
 
         </div>
       </div>
       <div class="main">
         <div class="nav-top">topnav</div>
-        <div class="row">
-          <div>users</div>
-          <div>selected user</div>
-        </div>
+          <div>
+            <div>users</div>
+            <div>selected user</div>
+          </div>
       </div>
     </div>
   </body>
 </html>
+
