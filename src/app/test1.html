@@ -36,11 +36,29 @@
       box-sizing: border-box;
     }
 
-    .nav-left > a > img {
+    .nav-left .user-pic >a > img {
       border-radius: 50%;
 
       border: 1px solid;
     }
+
+    .nav-left .nav > ul{ 
+        margin :0; 
+        padding:0; 
+        }
+        .nav-left .nav{
+        padding: 0 20px;
+        font-size: 0.8em;
+      }
+      .nav-left .nav > li.active::after{
+          content:'';
+         display:block;
+   margin-top:5px;
+   margin-left:15px;
+   width:138px;  
+   border-bottom: 3px solid #333;  
+ }
+
     a {
       text-decoration: none;
       color: white;
@@ -49,13 +67,13 @@
   <body>
     <div class="row">
       <div class="nav-left">
-        <div id="user-pic">
+        <div class="user-pic">
           <a href="#">
             <img src="../assets/images/user_left_nav.png" />
             <div>Mateusz Dembek</div>
           </a>
         </div>
-        <div id="nav">
+        <div class="nav">
           <ul>
             <li> <a href=""><i></i><span>Dashboard<span></a></li>
               <li> <a href=""><i></i><span>Files<span></a></li>
