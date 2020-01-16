@@ -5,89 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+<link rel="stylesheet"  href="../assets/styles/stylesheet.css"  >
   </head>
-  <style>
-    body {
-      font-family: sans-serif;
-      font-size: 16px;
-      font-weight: normal;
-      margin: 0;
-      color: white;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .nav-left {
-      flex: 18%;
-      background-color: #293c4e;
-      padding: 20px 0px 20px 0px;
-      height: 600px;
-    }
-    .nav-top {
-      background-color: #f1f1f1;
-      padding-left: 28px;
-      padding-top: 40px;
-    }
-    .main {
-      flex: 82%;
-      background-color: white;
-      padding: 0px;
-    }
-    * {
-      box-sizing: border-box;
-    }
 
-    .nav-left .user-pic >a > img {
-      border-radius: 50%;
-
-      border: 1px solid;
-    }
-
-    .nav-left .nav > ul{ 
-        margin :0; 
-        padding:0; 
-        list-style-type: none;
-        }
-    .nav-left .nav{
-        padding: 0 20px;
-        font-size: 0.8em;
-      }
-
-    
-    li:hover{
-            background-color: #223342;
-            border-right:5px solid #F29C28 ;
-             transition: background-color 1s;
-            }
-    
-    .nav-left .nav  li > a > span{
-   padding: 0 20px;
- }
-
- .nav-left .nav {
-  padding: 50px 0px 0px 0px;
- }
-
- .nav-left .nav  li {    
-   height: 50PX;
-    padding: 15px 0px 15px 33px;
-    }
-    
-    .nav-left .user-pic{
-      padding: 0px 0px 0px 50px;
-    }
-    
-   .nav-left .user-pic > a > div{
-     padding:20px 0;
-   }
-
-    a {
-      text-decoration: none;
-      color: white;
-    }
-  </style>
   <body>
     <div class="row">
       <div class="nav-left">
@@ -111,11 +31,28 @@
         </div>
       </div>
       <div class="main">
-        <div class="nav-top">topnav</div>
-          <div>
-            <div>users</div>
-            <div>selected user</div>
-          </div>
+        <nav class="nav-top"><img src="../assets/images/lang_select.png"><img src="../assets/images/logout.png"></nav>        
+        <div class="user-list">
+          <h4>Users</h4>
+          <p> if you want to take contact information</p>      
+         <div >
+          <!-- <img src="../assets/images/grid_users.png"> -->
+
+          <a href="" class="circle">
+            <img src="../assets/images/users_small_.png">
+            <span>Martina Grezata</span>
+          </a>
+          <a href="" class="circle">
+            <img src="../assets/images/users_small_.png">
+            <span>Martina Grezata</span>
+          </a>
+
+         </div>
+          
+        </div>
+        <div class="selected-user">
+          <img src="../assets/images/selectes_user.png">
+        </div>
       </div>
     </div>
   </body>
