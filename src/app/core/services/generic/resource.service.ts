@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 
-export class ResourceService<T extends Resource> {
+export class GenericHttpService<T extends Resource> {
   constructor(
     private httpClient: HttpClient,
     private endpoint: string,

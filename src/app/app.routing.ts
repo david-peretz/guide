@@ -12,13 +12,7 @@ const routes: Routes = [
         m => m.AuthenticationModule
       )
   },
-  // {
-  //   path: "authentication",
-  //   loadChildren: () =>
-  //     import("./modules/authentication/authentication.module").then(
-  //       m => m.AuthenticationModule
-  //     )
-  // },
+
   {
     path: "suppliers",
     canActivate: [AuthGuard],
@@ -32,6 +26,12 @@ const routes: Routes = [
     loadChildren: () =>
       import("./modules/contact/contact.module").then(m => m.ContactModule)
   },
+  {
+    path: "airport",
+    loadChildren: () =>
+      import("./modules/airports/airport.module").then(m => m.AirportModule)
+  },
+
   {
     path: "",
     canActivate: [AuthGuard],
