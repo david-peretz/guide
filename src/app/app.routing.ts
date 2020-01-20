@@ -17,9 +17,7 @@ const routes: Routes = [
     path: "suppliers",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./modules/suppliers/suppliers.module").then(
-        m => m.SuppliersModule
-      )
+      import("./modules/suppliers/supplier.module").then(m => m.SupplierModule)
   },
   {
     path: "contact",
@@ -36,9 +34,7 @@ const routes: Routes = [
     path: "",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./modules/suppliers/suppliers.module").then(
-        m => m.SuppliersModule
-      )
+      import("./modules/suppliers/supplier.module").then(m => m.SupplierModule)
   }
 ];
 // const routes: Routes = [

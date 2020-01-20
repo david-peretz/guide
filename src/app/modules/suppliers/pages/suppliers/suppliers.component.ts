@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SuppliersService } from "../../services/suppliers.service";
+import { SupplierService } from "../../services/supplier.service";
 import { Supplier } from "../../services/dto/resource";
 
 @Component({
@@ -9,7 +9,7 @@ import { Supplier } from "../../services/dto/resource";
 })
 export class SuppliersComponent implements OnInit {
   suppliers: Supplier[];
-  constructor(private service: SuppliersService) {}
+  constructor(private service: SupplierService) {}
 
   async ngOnInit() {
     this.suppliers = await this.service.getAll();

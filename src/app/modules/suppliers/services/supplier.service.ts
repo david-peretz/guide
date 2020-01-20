@@ -5,7 +5,7 @@ import { SupplierSerializer } from "./dto/serializer";
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class SuppliersService extends GenericHttpService<Supplier> {
+export class SupplierService extends GenericHttpService<Supplier> {
   constructor(httpClient: HttpClient) {
     super(httpClient, "suppliers.json", new SupplierSerializer());
   }

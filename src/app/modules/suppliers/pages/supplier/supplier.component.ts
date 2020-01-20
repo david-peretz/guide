@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { SuppliersService } from "../../services/suppliers.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { SupplierService } from "../../services/supplier.service";
 import { Supplier } from "../../services/dto/resource";
 import { NgForm } from "@angular/forms";
 
@@ -12,7 +12,8 @@ import { NgForm } from "@angular/forms";
 export class SupplierComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private service: SuppliersService
+    private router: Router,
+    private service: SupplierService
   ) {}
 
   supplier: Supplier = new Supplier();
@@ -35,6 +36,7 @@ export class SupplierComponent implements OnInit {
   onSubmit() {
     console.log(this.supplier);
     this.service.updateLocal(this.supplier);
+    this.router.navigate(["/"]);
   }
 
   get id() {
