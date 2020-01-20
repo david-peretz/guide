@@ -1,17 +1,24 @@
 ﻿import { Routes, RouterModule } from "@angular/router";
 
 import { HomeComponent } from "./home";
-import { LoginComponent } from "./login";
+//import { LoginComponent } from "./login";
 import { AuthGuard } from "./modules/authentication/_helpers";
 
 const routes: Routes = [
   {
-    path: "login",
+    path: "authentication",
     loadChildren: () =>
       import("./modules/authentication/authentication.module").then(
         m => m.AuthenticationModule
       )
   },
+  // {
+  //   path: "authentication",
+  //   loadChildren: () =>
+  //     import("./modules/authentication/authentication.module").then(
+  //       m => m.AuthenticationModule
+  //     )
+  // },
   {
     path: "suppliers",
     canActivate: [AuthGuard],

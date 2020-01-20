@@ -14,7 +14,6 @@ import {
   ErrorInterceptor
 } from "./modules/authentication/_helpers";
 import { HomeComponent } from "./home";
-import { LoginComponent } from "./login";
 
 @NgModule({
   imports: [
@@ -23,7 +22,7 @@ import { LoginComponent } from "./login";
     HttpClientModule,
     appRoutingModule
   ],
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
