@@ -1,4 +1,4 @@
-import { GenericHttpService } from "src/app/core/services/generic/resource.service";
+import { GenericHttpService } from "@app/core/services/generic/generic-http.service";
 import { HttpClient } from "@angular/common/http";
 import { Supplier } from "./dto/resource";
 import { SupplierSerializer } from "./dto/serializer";
