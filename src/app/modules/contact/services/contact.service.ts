@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class ContactService extends GenericHttpService<Supplier> {
   constructor(httpClient: HttpClient) {
-    super(httpClient, "suppliers.json", new SupplierSerializer());
+    super(httpClient, "users.json", new SupplierSerializer());
   }
 
   private _suppliers: Supplier[] = [];

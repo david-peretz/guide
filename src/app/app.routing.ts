@@ -14,10 +14,10 @@ const routes: Routes = [
   },
 
   {
-    path: "suppliers",
+    path: "users",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./modules/suppliers/supplier.module").then(m => m.SupplierModule)
+      import("./modules/user/user.module").then(m => m.UserModule)
   },
   {
     path: "contact",
@@ -34,7 +34,7 @@ const routes: Routes = [
     path: "",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./modules/suppliers/supplier.module").then(m => m.SupplierModule)
+      import("./modules/user/user.module").then(m => m.UserModule)
   }
 ];
 // const routes: Routes = [

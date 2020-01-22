@@ -1,0 +1,74 @@
+<!-- <div class="row justify-content-between bg-light mb-3 mr-1 ml-1 border p-3">
+  <div class="col-md-6 col-sm-12">
+    <form class="form-inline ">
+      <input
+        [(ngModel)]="searchText"
+        [ngModelOptions]="{ standalone: true }"
+        type="text"
+        class="col-md-7 col-sm-12 form-control ml-md-3 d-block mb-2"
+      />
+      <button
+        type="submit"
+        class="col-md-4 col-sm-12  btn btn-primary btn-block mb-2"
+      >
+        חפש
+      </button>
+    </form>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <button
+      [routerLink]="['./', 'new']"
+      type="submit"
+      class="btn btn-primary  btn-block mb-2 "
+    >
+      +הוספה
+    </button>
+  </div>
+</div>
+<div class="card-group row">
+  <div
+    class="col-xl-4 col-md-6 mb-3"
+    *ngFor="let supplier of suppliers | filter: searchText"
+  >
+    <a [routerLink]="['./', supplier.id]" class="card bg-light mb-3">
+      <h5 class="card-header">{{ supplier.name }}</h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5">מספר:</div>
+          <div class="col-7">{{ supplier.id }}</div>
+        </div>
+        <div class="row">
+          <div class="col-5">כתובת:</div>
+          <div class="col-7">{{ supplier.address }}</div>
+        </div>
+        <div class="row">
+          <div class="col-5">טלפון:</div>
+          <div class="col-7">{{ supplier.phone }}</div>
+        </div>
+        <div class="row">
+          <div class="col-5">דוא"ל:</div>
+          <div class="col-7" dir="ltr">{{ supplier.email }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div> -->
+<div class="user-list">
+  <h4>Users</h4>
+  <p>
+    if you want to get contact information to spesific user ,just select group
+    and then select him from the group below
+  </p>
+  <div class="users">
+    <!-- <img src="../assets/images/grid_users.png"> -->
+
+    <a *ngFor="let user of users | filter: searchText" href="" class="circle">
+      <img src="../assets/images/users_small_.png" />
+      <span>{{ user.name }}</span>
+    </a>
+    <!-- <a href="" class="circle">
+        <img src="../assets/images/users_small_.png" />
+        <span>Martina Grezata</span>
+      </a> -->
+  </div>
+</div>
