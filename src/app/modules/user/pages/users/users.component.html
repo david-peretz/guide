@@ -59,16 +59,38 @@
     if you want to get contact information to spesific user ,just select group
     and then select him from the group below
   </p>
+  <div>
+    <form class="form-inline search-form">
+      <div class="search">
+        <input
+          class="round"
+          [(ngModel)]="searchText"
+          [ngModelOptions]="{ standalone: true }"
+          type="text"
+          placeholder="Search..."
+        />
+        <button type="submit" class="corner">
+          <i class="fa fa-search"></i>
+        </button>
+        <!-- <button
+        type="submit"
+        class="col-md-4 col-sm-12  btn btn-primary btn-block mb-2"
+      >
+        חפש
+      </button> -->
+      </div>
+    </form>
+  </div>
   <div class="users">
     <!-- <img src="../assets/images/grid_users.png"> -->
 
-    <a *ngFor="let user of users | filter: searchText" href="" class="circle">
-      <img src="../assets/images/users_small_.png" />
+    <a
+      [routerLink]="['./', user.id]"
+      *ngFor="let user of users | filter: searchText"
+      class="circle"
+    >
+      <img [src]="'../assets/images/user_s' + user.id + '.png'" />
       <span>{{ user.name }}</span>
     </a>
-    <!-- <a href="" class="circle">
-        <img src="../assets/images/users_small_.png" />
-        <span>Martina Grezata</span>
-      </a> -->
   </div>
 </div>
