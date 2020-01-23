@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { FilterPipe } from "src/app/core/pipes/filter.pipe";
 const routes: Routes = [
   { path: "", component: UsersComponent },
-  { path: ":id", component: UserComponent }
+  { path: ":id", component: UsersComponent }
 ];
 @NgModule({
   declarations: [UsersComponent, UserComponent, FilterPipe],

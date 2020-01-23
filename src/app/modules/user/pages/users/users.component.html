@@ -60,37 +60,150 @@
     and then select him from the group below
   </p>
   <div>
-    <form class="form-inline search-form">
-      <div class="search">
-        <input
-          class="round"
-          [(ngModel)]="searchText"
-          [ngModelOptions]="{ standalone: true }"
-          type="text"
-          placeholder="Search..."
-        />
-        <button type="submit" class="corner">
-          <i class="fa fa-search"></i>
-        </button>
-        <!-- <button
-        type="submit"
-        class="col-md-4 col-sm-12  btn btn-primary btn-block mb-2"
-      >
-        חפש
-      </button> -->
-      </div>
-    </form>
+    <div>
+      <form class="form-inline search-form">
+        <div class="search">
+          <input
+            class="round"
+            [(ngModel)]="searchText"
+            [ngModelOptions]="{ standalone: true }"
+            type="text"
+            placeholder="Search..."
+          />
+          <button type="submit" class="corner">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="add-user">
+      <button [routerLink]="['./', 'new']" type="submit" class="btn-m">
+        New +
+      </button>
+    </div>
   </div>
+
   <div class="users">
     <!-- <img src="../assets/images/grid_users.png"> -->
 
     <a
-      [routerLink]="['./', user.id]"
+      [routerLink]="['/', user.id]"
       *ngFor="let user of users | filter: searchText"
       class="circle"
     >
       <img [src]="'../assets/images/user_s' + user.id + '.png'" />
       <span>{{ user.name }}</span>
     </a>
+  </div>
+</div>
+<div class="selected-area">
+  <div class="selected-user-img">
+    <img src="../assets/images/selectes_user.png" />
+  </div>
+
+  <div class="user-data">
+    <button
+      type="submit"
+      *ngIf="!isEditMode"
+      (click)="isEditMode = !isEditMode"
+      class="btn-m"
+    >
+      Update
+    </button>
+    <button
+      type="submit"
+      *ngIf="isEditMode && id !== 'new'"
+      (click)="isEditMode = !isEditMode"
+      class="btn-m"
+    >
+      Cancel
+    </button>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">שם משתמש</label>
+        <input
+          [(ngModel)]="user.name"
+          [value]="user?.name"
+          name="name"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="nameHelp"
+          placeholder="Enter Name"
+        />
+        <!-- <small id="nameHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+      </div>
+      <div class="form-group">
+        <label for="address">כתובת</label>
+        <input
+          [(ngModel)]="user.address"
+          [value]="user?.address"
+          name="address"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="addressHelp"
+          placeholder="Enter Address"
+        />
+        <!-- <small id="addressHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+      </div>
+      <div class="form-group">
+        <label for="user.id">מזהה משתמש</label>
+        <input
+          [(ngModel)]="user.id"
+          [value]="user?.id"
+          name="id"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="idHelp"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">phone Number</label>
+        <input
+          [(ngModel)]="user.phone"
+          [value]="user?.phone"
+          name="phone"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="phoneHelp"
+          placeholder="Enter Phone"
+        />
+        <!-- <small id="phoneHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          [(ngModel)]="user.email"
+          [value]="user?.email"
+          name="email"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="emailHelp"
+          placeholder="Enter Email"
+        />
+        <!-- <small id="emailHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+      </div>
+      <button type="submit" *ngIf="isEditMode" class="btn-m">
+        שמור
+      </button>
+    </form>
   </div>
 </div>

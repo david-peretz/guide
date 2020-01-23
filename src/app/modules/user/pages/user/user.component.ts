@@ -26,6 +26,7 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
+    debugger;
     const id = parseInt(this.id);
     if (isNaN(id)) return;
     const users = await this.service.getAll();
