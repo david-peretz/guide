@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   ) {}
 
   user: User = new User();
-  private _isEditMode: boolean = false;
+  private _isEditMode: boolean = true;
   get isEditMode(): boolean {
     return this._isEditMode || this.id === "new";
   }
@@ -26,9 +26,8 @@ export class UserComponent implements OnInit {
   }
 
   async ngOnInit() {
-    debugger;
-    const id = parseInt(this.id);
-    if (isNaN(id)) return;
+    let id = parseInt(this.id);
+    id = isNaN(id) ? 1 : id;
     const users = await this.service.getAll();
     this.user = users.find(user => user.id === id);
     console.log(this.user);
