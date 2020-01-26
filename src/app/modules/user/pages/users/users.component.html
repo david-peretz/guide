@@ -91,11 +91,9 @@
       *ngFor="let user of users | filter: searchText"
       class="circle"
     >
-      <img
-        [src]="'../assets/images/user_s' + user.id + '.png'"
-        style="width: 49px; height: 49px;"
-      />
-      <span>{{ user.name }}</span>
+      <!-- <img [src]="'../assets/images/user_s' + user.id + '.png'" /> -->
+      <img [src]="user.avatar" />
+      <span>{{ user.first_name + " " + user.last_name }}</span>
     </a>
   </div>
 </div>
@@ -133,13 +131,13 @@
           ></circle>
         </mask>
         <image
-          [attr.xlink:href]="'../assets/images/user_s' + user.id + '.png'"
+          [attr.xlink:href]="user.avatar"
           width="100%"
           height="100%"
           filter="url(#blur-image)"
         />
         <image
-          [attr.xlink:href]="'../assets/images/user_s' + user.id + '.png'"
+          [attr.xlink:href]="user.avatar"
           width="100%"
           height="100%"
           mask="url(#blur-mask)"

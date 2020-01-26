@@ -1,13 +1,14 @@
 import { GenericHttpService } from "@app/core/services/generic/generic-http.service";
 import { HttpClient } from "@angular/common/http";
 import { User } from "./dto/resource";
-import { SupplierSerializer } from "./dto/serializer";
+import { UserSerializer } from "./dto/serializer";
 import { Injectable } from "@angular/core";
 
 @Injectable()
 export class UserService extends GenericHttpService<User> {
   constructor(httpClient: HttpClient) {
-    super(httpClient, "users.json", new SupplierSerializer());
+    // super(httpClient, "users.json", new UserSerializer());
+    super(httpClient, "users?page=1&per_page=1000", new UserSerializer());
   }
 
   private _users: User[] = [];

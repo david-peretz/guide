@@ -27,6 +27,8 @@ body {
   width: 54%;
 }
 .main .user-list + img {
+  width: 49px;
+  height: 49px;
 }
 .main .user-list > h4 {
   color: #293c4e;

@@ -43,7 +43,7 @@ export class GenericHttpService<T extends Resource> {
           queryOptions ? queryOptions.toQueryString() : ""
         }`
       )
-      .pipe(map((data: any) => this.convertData(data)));
+      .pipe(map((data: any) => this.convertData(data.data)));
   }
 
   delete(id: number) {
@@ -51,6 +51,8 @@ export class GenericHttpService<T extends Resource> {
   }
 
   private convertData(data: any): T[] {
-    return data.map(item => this.serializer.fromJson(item));
+    return data.map(item => {
+      return this.serializer.fromJson(item);
+    });
   }
 }

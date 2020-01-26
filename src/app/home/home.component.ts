@@ -1,21 +1,27 @@
-﻿import { Component } from '@angular/core';
-import { first } from 'rxjs/operators';
+﻿import { Component } from "@angular/core";
+import { first } from "rxjs/operators";
 
-import { User } from '@app/modules/authentication/_models';
-import { UserService, AuthenticationService } from '@app/modules/authentication/_services';
+import { User } from "@app/shered/models";
+import {
+  UserService,
+  AuthenticationService
+} from "@app/shered/services";
 
-@Component({ templateUrl: 'home.component.html' })
+@Component({ templateUrl: "home.component.html" })
 export class HomeComponent {
-    loading = false;
-    users: User[];
+  loading = false;
+  users: User[];
 
-    constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {}
 
-    ngOnInit() {
-        this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
-            this.loading = false;
-            this.users = users;
-        });
-    }
+  ngOnInit() {
+    this.loading = true;
+    this.userService
+      .getAll()
+      .pipe(first())
+      .subscribe(users => {
+        this.loading = false;
+        this.users = users;
+      });
+  }
 }

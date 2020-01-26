@@ -1,19 +1,19 @@
-import { Supplier } from "./resource";
+import { User } from "./resource";
 import { Serializer } from "src/app/core/services/generic/serializer";
 
-export class SupplierSerializer implements Serializer {
-  fromJson(json: any): Supplier {
-    const supplier = Object.assign(new Supplier(), json);
+export class UserSerializer implements Serializer {
+  fromJson(json: any): User {
+    const supplier = Object.assign(new User(), json);
     return supplier;
   }
 
-  toJson(supplier: Supplier): any {
+  toJson(user: User): any {
     return {
-      id: supplier.id,
-      name: supplier.name,
-      address: supplier.address,
-      phone: supplier.phone,
-      email: supplier.email
+      id: user.id,
+      name: user.name,
+      address: user.address,
+      phone: user.phone,
+      email: user.email
     };
   }
 }

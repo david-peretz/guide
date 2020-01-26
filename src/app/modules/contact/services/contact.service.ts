@@ -1,31 +1,28 @@
 import { GenericHttpService } from "@app/core/services/generic/generic-http.service";
 import { HttpClient } from "@angular/common/http";
-import { Supplier } from "./dto/resource";
-import { SupplierSerializer } from "./dto/serializer";
+import { User } from "./dto/resource";
+import { UserSerializer } from "./dto/serializer";
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class ContactService extends GenericHttpService<Supplier> {
+export class ContactService extends GenericHttpService<User> {
   constructor(httpClient: HttpClient) {
-    super(httpClient, "users.json", new SupplierSerializer());
+    super(httpClient, "users.json", new UserSerializer());
   }
 
-  private _suppliers: Supplier[] = [];
-  get suppliers() {
-    return this._suppliers;
+  private _users: User[] = [];
+  get users() {
+    return this._users;
   }
 
-  async getAll(): Promise<Supplier[]> {
-    if (this._suppliers.length === 0)
-      this._suppliers = await this.list().toPromise();
-    return this.suppliers;
+  async getAll(): Promise<User[]> {
+    if (this._users.length === 0) this._users = await this.list().toPromise();
+    return this.users;
   }
 
-  updateLocal(supplier) {
-    if (!supplier.id) this.suppliers.push(supplier);
-    else if (!isNaN(supplier.id))
-      this.suppliers[
-        this.suppliers.findIndex(el => el.id === supplier.id)
-      ] = supplier;
+  updateLocal(user) {
+    if (!user.id) this.users.push(user);
+    else if (!isNaN(user.id))
+      this.users[this.users.findIndex(el => el.id === user.id)] = user;
   }
 }

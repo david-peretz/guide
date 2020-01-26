@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "../../services/user.service";
+import { UserService } from "@app/modules/user/services/user.service";
 import { User } from "../../services/dto/resource";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
+import { map } from "rxjs/operators";
+import { pipe, Observable } from "rxjs";
 
 @Component({
   selector: "app-users",
@@ -9,7 +11,7 @@ import { ActivatedRoute, Router, ParamMap } from "@angular/router";
   styleUrls: ["./users.component.css"]
 })
 export class UsersComponent implements OnInit {
-  users: User[];
+  users: any; //User[] = [];
   private id: string;
   constructor(
     private route: ActivatedRoute,
@@ -19,15 +21,15 @@ export class UsersComponent implements OnInit {
 
   async ngOnInit() {
     this.users = await this.service.getAll();
+
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get("id");
-
+      console.log(this.id);
       let id = parseInt(this.id);
-      id = isNaN(id) ? 1 : id;
-      //if (isNaN(id)) return;
-      //const users = await this.service.getAll();
-      this.user = this.users.find(user => user.id === id);
-      console.log(this.user);
+      // id = isNaN(id) ? 1 : id;
+      if (!isNaN(id)) {
+        this.user = this.users.find(user => user.id === id);
+      }
     });
   }
 
@@ -42,7 +44,7 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     console.log(this.user);
-    this.service.updateLocal(this.user);
+    //this.service.updateLocal(this.user);
     this.router.navigate(["/"]);
   }
 

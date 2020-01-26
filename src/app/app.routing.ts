@@ -2,13 +2,13 @@
 
 import { HomeComponent } from "./home";
 //import { LoginComponent } from "./login";
-import { AuthGuard } from "./modules/authentication/_helpers";
+import { AuthGuard } from "./core/helpers";
 
 const routes: Routes = [
   {
     path: "authentication",
     loadChildren: () =>
-      import("./modules/authentication/authentication.module").then(
+      import("@app/modules/authentication/authentication.module").then(
         m => m.AuthenticationModule
       )
   },
@@ -17,7 +17,7 @@ const routes: Routes = [
     path: "users",
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import("./modules/user/user.module").then(m => m.UserModule)
+      import("@app/modules/user/user.module").then(m => m.UserModule)
   },
   {
     path: "contact",

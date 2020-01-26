@@ -9,7 +9,9 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getAll() {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`);
+    return this.http.get<User[]>(
+      `https://reqres.in/api/users?page=1&per_page=1000`
+    ); //`${environment.apiUrl}/users`);
   }
 
   register(user) {
