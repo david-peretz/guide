@@ -3,7 +3,7 @@
   "name": "guid",
   "version": "1.1.0",
   "scripts": {
-    "gh-pages": "gh-pages --dist  src '[index.html,dist/**,CNAME]'",
+    "gh-pages": "gh-pages --dist  src '[**,dist/**,CNAME]'",
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
