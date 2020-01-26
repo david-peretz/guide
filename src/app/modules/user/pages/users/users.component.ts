@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
 
   onSubmit() {
     console.log(this.user);
-    //this.service.updateLocal(this.user);
+    this.service.update(this.user);
     this.router.navigate(["/"]);
   }
 

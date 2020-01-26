@@ -24,7 +24,8 @@ export class GenericHttpService<T extends Resource> {
   public update(item: T): Observable<T> {
     return this.httpClient
       .put<T>(
-        `${environment.uri}/${this.endpoint}/${item.id}`,
+        //`${environment.uri}/${this.endpoint}/${item.id}`,
+        'https://reqres.in/api/users/2',
         this.serializer.toJson(item)
       )
       .pipe(map(data => this.serializer.fromJson(data) as T));

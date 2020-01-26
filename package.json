@@ -1,9 +1,11 @@
 {
-  "homepage": "https://david-peretz.github.io/guide",
+  "homepage": "https://david-peretz.github.io/guide/",
   "name": "guid",
   "version": "1.1.0",
   "scripts": {
     "gh-pages": "gh-pages --dist  src '[**,dist/**,CNAME]'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
