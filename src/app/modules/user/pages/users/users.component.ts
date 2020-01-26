@@ -34,7 +34,7 @@ export class UsersComponent implements OnInit {
   }
 
   user: User = new User();
-  private _isEditMode: boolean = true;
+  private _isEditMode: boolean = false;
   get isEditMode(): boolean {
     return this._isEditMode || this.id === "new";
   }

@@ -165,25 +165,64 @@
     </button>
 
     <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">User Name</label>
+      <div class="group" *ngIf="!isEditMode">
+        <label for="fullName">User Name</label>
         <input
-          [(ngModel)]="user.name"
-          [value]="user?.name"
+          [(ngModel)]="user.fullName"
+          [value]="user?.fullName"
+          name="fullName"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="nameHelp"
+          required="required"
+        />
+      </div>
+      <!-- <div class="group">
+        <input type="text" required="required" />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Name</label>
+      </div> -->
+
+      <!-- <small id="nameHelp" class="form-text text-muted"
+      >We'll never share your email with anyone else.</small
+    > -->
+
+      <div class="group" *ngIf="isEditMode">
+        <input
+          [(ngModel)]="user.first_name"
+          [value]="user?.first_name"
+          name="first_name"
+          type="text"
+          [readonly]="!isEditMode"
+          [class.form-control]="isEditMode"
+          [class.form-control-plaintext]="!isEditMode"
+          aria-describedby="nameHelp"
+          placeholder="Enter First Name"
+        />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="fullName">First Name</label>
+      </div>
+      <div class="group" *ngIf="isEditMode">
+        <input
+          [(ngModel)]="user.last_name"
+          [value]="user?.last_name"
           name="name"
           type="text"
           [readonly]="!isEditMode"
           [class.form-control]="isEditMode"
           [class.form-control-plaintext]="!isEditMode"
           aria-describedby="nameHelp"
-          placeholder="Enter Name"
+          placeholder="Enter Last Name"
         />
-        <!-- <small id="nameHelp" class="form-text text-muted"
-      >We'll never share your email with anyone else.</small
-    > -->
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="last_name">Last Name</label>
       </div>
-      <div class="form-group">
-        <label for="address">Address</label>
+      <div class="group">
         <input
           [(ngModel)]="user.address"
           [value]="user?.address"
@@ -195,11 +234,11 @@
           aria-describedby="addressHelp"
           placeholder="Enter Address"
         />
-        <!-- <small id="addressHelp" class="form-text text-muted"
-      >We'll never share your email with anyone else.</small
-    > -->
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="address">Address</label>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="user.id">id</label>
         <input
           [(ngModel)]="user.id"
@@ -211,9 +250,8 @@
           [class.form-control-plaintext]="!isEditMode"
           aria-describedby="idHelp"
         />
-      </div>
-      <div class="form-group">
-        <label for="phone">phone Number</label>
+      </div> -->
+      <div class="group">
         <input
           [(ngModel)]="user.phone"
           [value]="user?.phone"
@@ -225,12 +263,11 @@
           aria-describedby="phoneHelp"
           placeholder="Enter Phone"
         />
-        <!-- <small id="phoneHelp" class="form-text text-muted"
-      >We'll never share your email with anyone else.</small
-    > -->
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="phone">Phone</label>
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
+      <div class="group">
         <input
           [(ngModel)]="user.email"
           [value]="user?.email"
@@ -242,6 +279,9 @@
           aria-describedby="emailHelp"
           placeholder="Enter Email"
         />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label for="email">Email</label>
         <!-- <small id="emailHelp" class="form-text text-muted"
       >We'll never share your email with anyone else.</small
     > -->

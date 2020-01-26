@@ -236,8 +236,15 @@ div.add-user {
 /* Material style  */
 form {
   width: 50%px;
-  /* margin: 45px auto; */
+  margin: 45px auto;
 }
+.main > app-users > div.user-list > div:nth-child(3) > div:nth-child(1) > form {
+  margin: 0px;
+}
+body > app > div > div.main > app-users > div.selected-area > div.user-data {
+  padding: 0 10%;
+}
+
 form h1 {
   font-size: 3em;
   font-weight: 300;
