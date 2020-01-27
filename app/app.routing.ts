@@ -5,36 +5,61 @@ import { HomeComponent } from "./home";
 import { AuthGuard } from "./core/helpers";
 
 const routes: Routes = [
+  // {
+  //   path: "authentication",
+  //   loadChildren: () =>
+  //     import("@app/modules/authentication/authentication.module").then(
+  //       m => m.AuthenticationModule
+  //     )
+  // },
   {
     path: "authentication",
-    loadChildren: () =>
-      import("@app/modules/authentication/authentication.module").then(
-        m => m.AuthenticationModule
-      )
+    loadChildren:
+      "@app/modules/authentication/authentication.module#AuthenticationModule"
   },
+
+  // {
+  //   path: "users",
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () =>
+  //     import("@app/modules/user/user.module").then(m => m.UserModule)
+  // },
 
   {
     path: "users",
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("@app/modules/user/user.module").then(m => m.UserModule)
+    loadChildren: "@app/modules/user/user.module#UserModule"
   },
+  // {
+  //   path: "contact",
+  //   loadChildren: () =>
+  //     import("./modules/contact/contact.module").then(m => m.ContactModule)
+  // },
   {
     path: "contact",
-    loadChildren: () =>
-      import("./modules/contact/contact.module").then(m => m.ContactModule)
+    loadChildren: "./modules/contact/contact.module#ContactModule"
   },
+  // {
+  //   path: "airport",
+  //   loadChildren: () =>
+  //     import("./modules/airports/airport.module").then(m => m.AirportModule)
+  // },
+
   {
     path: "airport",
-    loadChildren: () =>
-      import("./modules/airports/airport.module").then(m => m.AirportModule)
+    loadChildren: "./modules/airports/airport.module#AirportModule"
   },
+
+  // {
+  //   path: "",
+  //   canActivate: [AuthGuard],
+  //   loadChildren: () =>
+  //     import("./modules/user/user.module").then(m => m.UserModule)
+  // }
 
   {
     path: "",
     canActivate: [AuthGuard],
-    loadChildren: () =>
-      import("./modules/user/user.module").then(m => m.UserModule)
+    loadChildren: "./modules/user/user.module#UserModule"
   }
 ];
 // const routes: Routes = [
