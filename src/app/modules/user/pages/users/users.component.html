@@ -155,9 +155,10 @@
     >
       Update
     </button>
+    <!-- && id !== 'new' -->
     <button
       type="submit"
-      *ngIf="isEditMode && id !== 'new'"
+      *ngIf="isEditMode"
       (click)="isEditMode = !isEditMode"
       class="btn btn-link"
     >
@@ -222,7 +223,7 @@
         <span class="bar"></span>
         <label for="last_name">Last Name</label>
       </div>
-      <div class="group">
+      <!-- <div class="group">
         <input
           [(ngModel)]="user.address"
           [value]="user?.address"
@@ -237,7 +238,7 @@
         <span class="highlight"></span>
         <span class="bar"></span>
         <label for="address">Address</label>
-      </div>
+      </div> -->
       <!-- <div class="form-group">
         <label for="user.id">id</label>
         <input
@@ -251,7 +252,7 @@
           aria-describedby="idHelp"
         />
       </div> -->
-      <div class="group">
+      <!-- <div class="group">
         <input
           [(ngModel)]="user.phone"
           [value]="user?.phone"
@@ -266,7 +267,7 @@
         <span class="highlight"></span>
         <span class="bar"></span>
         <label for="phone">Phone</label>
-      </div>
+      </div> -->
       <div class="group">
         <input
           [(ngModel)]="user.email"

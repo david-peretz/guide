@@ -24,7 +24,13 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.less"],
+            "styles": [
+              "src/styles.less",
+              "src/assets/styles/stylesheet.css",
+              "src/assets/styles/fontawesome-free-5.12.0-web/css/all.min.css",
+              "src/assets/styles/fontawesome-free-5.12.0-web/css/fontawesome.min.css"
+            ],
+
             "scripts": []
           },
           "configurations": {

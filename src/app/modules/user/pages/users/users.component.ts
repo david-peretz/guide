@@ -13,6 +13,7 @@ import { pipe, Observable } from "rxjs";
 export class UsersComponent implements OnInit {
   users: any; //User[] = [];
   private id: string;
+  searchText: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
