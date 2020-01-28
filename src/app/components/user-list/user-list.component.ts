@@ -1,16 +1,16 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "@app/modules/user/services/user.service";
-import { User } from "../../services/dto/resource";
+import { User } from "@app/modules/user/services/dto/resource";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { map } from "rxjs/operators";
 import { pipe, Observable } from "rxjs";
 
 @Component({
-  selector: "app-users",
-  templateUrl: "./users.component.html",
-  styleUrls: ["./users.component.css"]
+  selector: "user-list",
+  templateUrl: "./user-list.component.html",
+  styleUrls: ["./user-list.component.css"]
 })
-export class UsersComponent implements OnInit {
+export class UserListComponent implements OnInit {
   users: any; //User[] = [];
   private id: string;
   searchText: string;
@@ -25,11 +25,16 @@ export class UsersComponent implements OnInit {
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get("id");
+
       console.log(this.id);
-      let id = parseInt(this.id);
-      // id = isNaN(id) ? 1 : id;
-      if (!isNaN(id)) {
-        this.user = this.users.find(user => user.id === id);
+      if (this.id === "new") {
+        this.user = new User();
+      } else {
+        let id = parseInt(this.id);
+        // id = isNaN(id) ? 1 : id;
+        if (!isNaN(id)) {
+          this.user = this.users.find(user => user.id === id);
+        }
       }
     });
   }
@@ -43,10 +48,18 @@ export class UsersComponent implements OnInit {
     this._isEditMode = isEdit;
   }
 
-  onSubmit() {
-    console.log(this.user);
-    this.service.update(this.user);
-    this.router.navigate(["/"]);
+  async onSubmitUsers() {
+    //console.log(this.user);
+    if (this.id === "new") {
+      await this.service.create(this.user).subscribe(res => {
+        console.log(res);
+        this.user = res;
+        this.users.push(res);
+        this.isEditMode = false;
+      });
+    }
+
+    //this.router.navigate(["/"]);
   }
 
   // get id() {

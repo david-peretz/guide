@@ -1,17 +1,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
-import { UsersComponent } from "./pages/users/users.component";
-import { UserComponent } from "./pages/user/user.component";
+import { UserListComponent } from "@app/components/user-list/user-list.component";
 import { UserService } from "./services/user.service";
 import { FormsModule } from "@angular/forms";
 import { FilterPipe } from "src/app/core/pipes/filter.pipe";
+import { UserComponent } from "@app/components/user/user.component";
 const routes: Routes = [
-  { path: "", component: UsersComponent },
-  { path: ":id", component: UsersComponent }
+  { path: "", component: UserListComponent },
+  { path: ":id", component: UserListComponent }
 ];
 @NgModule({
-  declarations: [UsersComponent, UserComponent, FilterPipe],
+  declarations: [UserListComponent, UserComponent, FilterPipe],
   imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
   providers: [UserService]
 })
