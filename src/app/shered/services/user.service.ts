@@ -2,7 +2,7 @@
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "@environments/environment";
-import { User } from "@app/shered/models";
+import { User } from "@app/interface/models";
 
 @Injectable({ providedIn: "root" })
 export class UserService {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "@app/modules/user/services/user.service";
-import { User } from "@app/modules/user/services/dto/resource";
+import { UserService } from "@app/services/user/user.service";
+import { User } from "@app/interface/models/resource";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { map } from "rxjs/operators";
 import { pipe, Observable } from "rxjs";

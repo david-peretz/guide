@@ -1,7 +1,7 @@
 import { GenericHttpService } from "@app/core/services/generic/generic-http.service";
 import { HttpClient } from "@angular/common/http";
-import { User } from "./dto/resource";
-import { UserSerializer } from "./dto/serializer";
+import { User } from "../../interface/models/resource";
+import { UserSerializer } from "./serializer";
 import { Injectable } from "@angular/core";
 
 @Injectable()

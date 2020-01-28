@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
-import { UserService } from "@app/modules/user/services/user.service";
-import { User } from "@app/modules/user/services/dto/resource";
+import { UserService } from "@app/services/user/user.service";
+import { User } from "@app/interface/models/resource";
 import { NgForm } from "@angular/forms";
 
 @Component({

@@ -2,7 +2,7 @@
 import { Router } from "@angular/router";
 
 import { AuthenticationService } from "./shered/services";
-import { User } from "@app/shered/models";
+import { User } from "@app/interface/models";
 
 @Component({ selector: "app", templateUrl: "app.component.html" })
 export class AppComponent {

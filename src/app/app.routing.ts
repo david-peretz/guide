@@ -1,6 +1,6 @@
 ﻿import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from "./components/home";
+import { HomeComponent } from "@app/ui-components/home";
 //import { LoginComponent } from "./login";
 import { AuthGuard } from "./core/helpers";
 
@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: "authentication",
     loadChildren:
-      "@app/modules/authentication/authentication.module#AuthenticationModule"
+      "@app/ui-module/authentication/authentication.module#AuthenticationModule"
   },
 
   // {
@@ -27,7 +27,7 @@ const routes: Routes = [
 
   {
     path: "users",
-    loadChildren: "@app/modules/user/user.module#UserModule"
+    loadChildren: "@app/ui-module/user/user.module#UserModule"
   },
   // {
   //   path: "contact",
@@ -36,7 +36,7 @@ const routes: Routes = [
   // },
   {
     path: "contact",
-    loadChildren: "./modules/contact/contact.module#ContactModule"
+    loadChildren: "./ui-module/contact/contact.module#ContactModule"
   },
   // {
   //   path: "airport",
@@ -46,7 +46,7 @@ const routes: Routes = [
 
   {
     path: "airport",
-    loadChildren: "./modules/airports/airport.module#AirportModule"
+    loadChildren: "./ui-module/airports/airport.module#AirportModule"
   },
 
   // {
@@ -59,7 +59,7 @@ const routes: Routes = [
   {
     path: "",
     canActivate: [AuthGuard],
-    loadChildren: "./modules/user/user.module#UserModule"
+    loadChildren: "./ui-module/user/user.module#UserModule"
   }
 ];
 // const routes: Routes = [

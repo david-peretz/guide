@@ -11,7 +11,7 @@ import {
 import { Observable, of, throwError } from "rxjs";
 import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
 
-import { User } from "@app/shered/models";
+import { User } from "@app/interface/models";
 import { UserService } from "@app/shered/services";
 
 let users: User[] = [

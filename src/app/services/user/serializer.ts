@@ -1,4 +1,4 @@
-import { User } from "./resource";
+import { User } from "../../interface/models/resource";
 import { Serializer } from "src/app/core/services/generic/serializer";
 
 export class UserSerializer implements Serializer {
