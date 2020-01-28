@@ -20,11 +20,9 @@ export class UserService extends GenericHttpService<User> {
     if (this._users.length === 0) this._users = await this.list().toPromise();
     return this.users;
   }
-  async register(user) {
+  register(user) {
     // return this.http.post(`${environment.apiUrl}/users/register`, user);
-    return await this.create(user).subscribe(res => {
-      return res;
-    });
+    return this.create(user);
   }
 
   async delete(id) {
