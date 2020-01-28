@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot
 } from "@angular/router";
 
-import { AuthenticationService } from "@app/shered/services";
+import { AuthenticationService } from "@app/services";
 
 @Injectable({ providedIn: "root" })
 export class AuthGuard implements CanActivate {

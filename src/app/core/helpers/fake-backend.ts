@@ -12,7 +12,7 @@ import { Observable, of, throwError } from "rxjs";
 import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
 
 import { User } from "@app/interface/models";
-import { UserService } from "@app/shered/services";
+import { UserService } from "@app/services";
 
 let users: User[] = [
   {

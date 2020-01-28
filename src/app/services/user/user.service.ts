@@ -20,10 +20,22 @@ export class UserService extends GenericHttpService<User> {
     if (this._users.length === 0) this._users = await this.list().toPromise();
     return this.users;
   }
-
-  updateLocal(user) {
-    if (!user.id) this.users.push(user);
-    else if (!isNaN(user.id))
-      this.users[this.users.findIndex(el => el.id === user.id)] = user;
+  async register(user) {
+    // return this.http.post(`${environment.apiUrl}/users/register`, user);
+    return await this.create(user).subscribe(res => {
+      return res;
+    });
   }
+
+  async delete(id) {
+    return await this.delete(id).subscribe(res => {
+      return res;
+    });
+    // return this.http.delete(`${environment.apiUrl}/users/${id}`);
+  }
+  // updateLocal(user) {
+  //   if (!user.id) this.users.push(user);
+  //   else if (!isNaN(user.id))
+  //     this.users[this.users.findIndex(el => el.id === user.id)] = user;
+  // }
 }

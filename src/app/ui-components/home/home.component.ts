@@ -2,15 +2,12 @@
 import { first } from "rxjs/operators";
 
 import { User } from "@app/interface/models";
-import {
-  UserService,
-  AuthenticationService
-} from "@app/shered/services";
+import { UserService, AuthenticationService } from "@app/services";
 
 @Component({ templateUrl: "home.component.html" })
 export class HomeComponent {
   loading = false;
-  users: User[];
+  users: any;
 
   constructor(private userService: UserService) {}
 
@@ -18,8 +15,8 @@ export class HomeComponent {
     this.loading = true;
     this.userService
       .getAll()
-      .pipe(first())
-      .subscribe(users => {
+      //.pipe(first())
+      .then(users => {
         this.loading = false;
         this.users = users;
       });
