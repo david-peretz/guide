@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{Pii7:function(t,e,s){"use strict";s.d(e,"a",function(){return n});var a=s("2Vo4");class n{constructor(t){this.state$=new a.a(t)}getValue(){return this.state$.getValue()}getState(){return this.state$.asObservable()}setState(t){this.state$.next(t)}}}}]);
