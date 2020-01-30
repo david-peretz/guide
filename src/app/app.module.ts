@@ -11,6 +11,7 @@ import { appRoutingModule } from "./app.routing";
 
 import { JwtInterceptor, ErrorInterceptor } from "@app/core/helpers";
 import { HomeComponent } from "@app/ui-components/home";
+import { SearchComponent } from "./ui-components/search/search.component";
 
 @NgModule({
   imports: [

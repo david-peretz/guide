@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "@app/services/user/user.service";
 import { User } from "@app/interface/models/resource";
 import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { map } from "rxjs/operators";
 import { pipe, Observable } from "rxjs";
+import { SearchComponent } from "@app/ui-components/search/search.component";
 
 @Component({
   selector: "user-list",
@@ -11,9 +12,10 @@ import { pipe, Observable } from "rxjs";
   styleUrls: ["./user-list.component.css"]
 })
 export class UserListComponent implements OnInit {
-  users: any; //User[] = [];
-  private id: string;
   searchText: string;
+  users: User[] = [];
+  private id: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,7 +24,7 @@ export class UserListComponent implements OnInit {
 
   async ngOnInit() {
     this.users = await this.service.getAll();
-
+    console.log(this.users);
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get("id");
 
@@ -37,6 +39,10 @@ export class UserListComponent implements OnInit {
         }
       }
     });
+  }
+
+  async handleSearch(value) {
+    this.searchText = value;
   }
 
   user: User = new User();

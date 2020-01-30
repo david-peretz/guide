@@ -1,0 +1,44 @@
+<div>
+  <div class="form-inline search-form">
+    <div class="search">
+      <input
+        [formControl]="searchText"
+        autofocus
+        class="round"
+        type="text"
+        
+        placeholder="Search..."
+      />
+      <button type="submit" class="corner">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+  <!-- <section class="filter-wrapper">
+    <div class="keyword-wrapper">
+      <input
+        [formControl]="queryField"
+        type="text"
+        id="keyword"
+        placeholder="search for artists..."
+        autofocus
+      />
+    </div>
+     <ul class="filter-select">
+      <li *ngFor="let result of results" class="filter-select-list">
+        <img
+          src="{{ result.images['2']?.url }}"
+          alt=""
+          width="50"
+          height="50"
+        />
+        <p class="artist-name">
+          {{ result.name }}
+        </p>
+        <span class="tags" *ngFor="let genre of result?.genres | slice: 0:6">{{
+          genre
+        }}</span>
+      </li>
+    </ul> 
+  </section> -->
+</div>

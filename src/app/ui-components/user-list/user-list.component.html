@@ -5,22 +5,8 @@
     and then select him from the group below
   </p>
   <div>
-    <div>
-      <form class="form-inline search-form">
-        <div class="search">
-          <input
-            class="round"
-            [(ngModel)]="searchText"
-            [ngModelOptions]="{ standalone: true }"
-            type="text"
-            placeholder="Search..."
-          />
-          <button type="submit" class="corner">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </form>
-    </div>
+    <app-search (onSearch)="handleSearch($event)"></app-search>
+
     <div class="add-user">
       <button [routerLink]="['/', 'new']" type="submit" class="btn btn-link">
         New +
@@ -30,7 +16,6 @@
 
   <div class="users">
     <!-- <img src="../assets/images/grid_users.png"> -->
-
     <a
       [routerLink]="['/', user.id]"
       *ngFor="let user of users | filter: searchText"
