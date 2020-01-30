@@ -7,6 +7,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FilterPipe } from "src/app/core/pipes/filter.pipe";
 import { UserComponent } from "@app/ui-components/user/user.component";
 import { SearchComponent } from "@app/ui-components/search/search.component";
+import { SearchService } from "@app/services/search/search.service";
+
 const routes: Routes = [
   { path: "", component: UserListComponent },
   { path: ":id", component: UserListComponent }
@@ -19,6 +21,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  providers: [UserService]
+  providers: [UserService, SearchService]
 })
 export class UserModule {}

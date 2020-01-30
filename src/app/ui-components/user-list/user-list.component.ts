@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, ParamMap } from "@angular/router";
 import { map } from "rxjs/operators";
 import { pipe, Observable } from "rxjs";
 import { SearchComponent } from "@app/ui-components/search/search.component";
+import { SearchService } from "@app/services/search/search.service";
 
 @Component({
   selector: "user-list",
@@ -13,18 +14,27 @@ import { SearchComponent } from "@app/ui-components/search/search.component";
 })
 export class UserListComponent implements OnInit {
   searchText: string;
+  searchText$: Observable<{ searchText: string }[]>;
   users: User[] = [];
   private id: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: UserService
-  ) {}
+    private service: UserService,
+    private searchService: SearchService
+  ) {
+    this.searchText$ = searchService.getState();
+    console.log(this.searchText$);
+  }
 
   async ngOnInit() {
     this.users = await this.service.getAll();
-    console.log(this.users);
+
+    this.searchText$.subscribe(searchData => {
+      this.searchText = searchData[0].searchText;
+    });
+    //    console.log(this.users);
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get("id");
 
@@ -39,10 +49,6 @@ export class UserListComponent implements OnInit {
         }
       }
     });
-  }
-
-  async handleSearch(value) {
-    this.searchText = value;
   }
 
   user: User = new User();
